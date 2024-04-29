@@ -322,6 +322,11 @@
     border-color: var(--primary);
 }
 
+.testimonial-img{
+    width: 50px !important;
+    height: 50px;
+}
+
 
 /*** Footer ***/
 .footer .btn.btn-social {
