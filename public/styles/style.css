@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #00B074;
-    --secondary: #2B9BFF;
+    --primary: #2F70AF;
+    --secondary: #02315E;
     --light: #EFFDF5;
     --dark: #2B3940;
 }
@@ -36,9 +36,11 @@
     font-weight: 600;
     transition: .5s;
 }
-
-.btn.btn-primary,
-.btn.btn-secondary {
+.btn.btn-secondary{
+    color: #000;
+}
+.btn.btn-primary
+ {
     color: #FFFFFF;
 }
 
