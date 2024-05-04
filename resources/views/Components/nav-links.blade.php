@@ -10,17 +10,11 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{ route('home') }}" class="nav-item nav-link{{ Request::is('/') ? ' active' : '' }}">{{ __('Home') }}</a>
             <a href="{{ route('about') }}" class="nav-item nav-link{{ Request::is('about') ? ' active' : '' }}">{{ __('About') }}</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ __('Jobs') }}</a>
-                <div class="dropdown-menu rounded-0 m-0">
-                    <a href="{{ route('job.list') }}" class="dropdown-item">{{ __('Job List') }}</a>
-                    <a href="{{ route('job.detail') }}" class="dropdown-item">{{ __('Job Detail') }}</a>
-                </div>
-            </div>
+            <a href="{{ route('jobs') }}" class="nav-item nav-link{{ Request::is('jobs') ? ' active' : '' }}">{{ __('Jobs') }}</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ __('Pages') }}</a>
                 <div class="dropdown-menu rounded-0 m-0">
-                    <a href="{{ route('category') }}" class="dropdown-item">{{ __('Job Category') }}</a>
+                    <a href="{{ route('categories') }}" class="dropdown-item">{{ __('Job Category') }}</a>
                     <a href="{{ route('testimonial') }}" class="dropdown-item">{{ __('Testimonial') }}</a>
                     <a href="{{ route('404') }}" class="dropdown-item">404</a>
                 </div>
