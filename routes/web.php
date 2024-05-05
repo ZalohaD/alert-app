@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers as Controllers;
+use App\Models\Category;
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(Controllers\JobController::class)->group(function() {
@@ -50,7 +52,9 @@ Route::prefix('/user')->name('user.')->controller(Controllers\UserController::cl
 });
 
 Route::get('/', function () {
-    return view('home');
+    $jobs = Job::paginate(5);
+    $categories = Category::all();
+    return view('home', compact('jobs', 'categories'));
 })->name('home');
 
 Route::get('/about', function () {

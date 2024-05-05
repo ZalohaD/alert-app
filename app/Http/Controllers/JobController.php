@@ -14,7 +14,8 @@ class JobController extends Controller
     }
 
     public function job_show($id){
-        // show job details by id
+        $job = Job::find($id);
+        return view("job_show", ["job"=> $job]);
     }
 
     public function categories(){

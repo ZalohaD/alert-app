@@ -12,6 +12,7 @@
         <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
             <div class="d-flex mb-3">
                 <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                <a class="btn btn-primary me-3" href="{{ route('job_show', ['id' => $job->id]) }}">Details</a>
                 <a class="btn btn-primary" href="">Apply Now</a>
             </div>
             <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
