@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -28,6 +29,7 @@ class JobFactory extends Factory
             'salary' => '$50.000',
             'category_id' => Category::inRandomOrder()->first(),
             'user_id' => User::inRandomOrder()->first(),
+            'company_id' => Company::inRandomOrder()->first(),
         ];
     }
 }

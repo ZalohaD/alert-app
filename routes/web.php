@@ -12,9 +12,21 @@ Route::controller(Controllers\JobController::class)->group(function() {
 
     Route::get('/jobs/{id}','job_show')->name('job_show');
 
+});
+
+Route::controller(Controllers\CategoryController::class)->group(function() {
+
     Route::get('/categories','categories')->name('categories');
 
     Route::get('/categories/{id}','category_show')->name('category_show');
+
+});
+
+Route::controller(Controllers\CompanyController::class)->group(function() {
+
+    Route::get('/companies', 'companies')->name('companies');
+
+    Route::get('/companies/{id}', 'company_show')->name('company_show');
 
 });
 
@@ -59,7 +71,7 @@ Route::prefix('/employee')->name('employee.')->controller(Controllers\UserContro
 });
 
 Route::get('/', function () {
-    $jobs = Job::paginate(5);
+    $jobs = Job::take(5)->get();
     $categories = Category::all();
     return view('home', compact('jobs', 'categories'));
 })->name('home');

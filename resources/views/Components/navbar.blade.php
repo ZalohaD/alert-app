@@ -15,7 +15,7 @@
                 <div class="dropdown-menu rounded-0 m-0">
                     <a href="{{ route('jobs') }}" class="dropdown-item">All Jobs</a>
                     <a href="{{ route('categories') }}" class="dropdown-item">Categories</a>
-                    <a href="#" class="dropdown-item">Companies</a>
+                    <a href="{{ route('companies') }}" class="dropdown-item">Companies</a>
                 </div>
             </div>
             <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
