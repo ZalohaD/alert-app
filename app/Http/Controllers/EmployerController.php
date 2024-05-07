@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class EmployerController extends Controller
 {
-    public function index(){
-        // Employer page
+    public function home(){
+        return view('profile.employer.main');
     }
 
     public function jobs_list(){

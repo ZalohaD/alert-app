@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers as Controllers;
+use App\Http\Controllers\Auth as Auth;
+use App\Models\Category;
+use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(Controllers\JobController::class)->group(function() {
@@ -9,27 +12,45 @@ Route::controller(Controllers\JobController::class)->group(function() {
 
     Route::get('/jobs/{id}','job_show')->name('job_show');
 
+});
+
+Route::controller(Controllers\CategoryController::class)->group(function() {
+
     Route::get('/categories','categories')->name('categories');
 
     Route::get('/categories/{id}','category_show')->name('category_show');
 
 });
 
-Route::prefix('/auth')->name('auth.')->controller(Controllers\AuthController::class)->group(function() {
-    
-    Route::get('/register','register')->name('register');
-    
-    Route::post('/','register_store')->name('register_store');
+Route::controller(Controllers\CompanyController::class)->group(function() {
 
-    Route::get('/login', 'login')->name('login');
-    
-    Route::post('/', 'login_validate')->name('login_validate');
+    Route::get('/companies', 'companies')->name('companies');
+
+    Route::get('/companies/{id}', 'company_show')->name('company_show');
 
 });
 
-Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerController::class)->group(function() { // add middleware (lock route)
+Route::controller(Auth\LoginController::class)->name('auth.')->group(function() {
 
-    Route::get('/index','index')->name('index');
+    Route::get('/login', 'login')->name('login');
+    
+    Route::post('/login', 'login_validate')->name('login_validate');
+
+    Route::post('/logout', 'logout')->name('logout');
+
+});
+
+Route::controller(Auth\RegisterController::class)->name('auth.')->group(function() {
+
+    Route::get('/register','register')->name('register');
+    
+    Route::post('/register','register_store')->name('register_store');
+
+});
+
+Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerController::class)->middleware(['auth.custom', 'employer'])->group(function() { // add middleware (lock route)
+
+    Route::get('/home','home')->name('home');
 
     Route::get('/jobs','jobs_list')->name('jobs_list');
 
@@ -39,9 +60,9 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
 });
 
-Route::prefix('/user')->name('user.')->controller(Controllers\UserController::class)->group(function() { // add middleware (lock route)
+Route::prefix('/employee')->name('employee.')->controller(Controllers\UserController::class)->group(function() { // add middleware (lock route)
 
-    Route::get('/index','index')->name('index');
+    Route::get('/home','home')->name('home');
 
     Route::get('/edit','create_portfolio')->name('create_portfolio');
 
@@ -50,7 +71,9 @@ Route::prefix('/user')->name('user.')->controller(Controllers\UserController::cl
 });
 
 Route::get('/', function () {
-    return view('home');
+    $jobs = Job::take(5)->get();
+    $categories = Category::all();
+    return view('home', compact('jobs', 'categories'));
 })->name('home');
 
 Route::get('/about', function () {

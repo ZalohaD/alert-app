@@ -4,12 +4,20 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Company</h5>
-                <a class="btn btn-link text-white-50" href="{{route('about')}}">About Us</a>
-                <a class="btn btn-link text-white-50" href="{{route('contact')}}">Contact Us</a>
-                <a class="btn btn-link text-white-50" href="{{route('about')}}">Privacy Policy</a>
-                <a class="btn btn-link text-white-50" href="{{route('about')}}">Terms & Condition</a>
+                <a class="btn btn-link text-white-50" href="">About Us</a>
+                <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="">Our Services</a>
+                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
             </div>
-
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Quick Links</h5>
+                <a class="btn btn-link text-white-50" href="">About Us</a>
+                <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="">Our Services</a>
+                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+            </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Contact</h5>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
@@ -24,7 +32,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Newsletter</h5>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <p>Get the latest news on your email</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
                     <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                     <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
@@ -36,15 +44,14 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="{{route('home')}}">Alert</a>, All Right Reserved.
-
+                    <a class="border-bottom" href="{{ route('home') }}">Alert Job Portal</a>. All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="{{route('home')}}">Home</a>
-                        <a href="{{route('about')}}">Cookies</a>
-                        <a href="{{route('contact')}}">Help</a>
-                        <a href="{{route('testimonial')}}">FAQ</a>
+                        <a href="{{ route('home') }}">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FQAs</a>
                     </div>
                 </div>
             </div>
@@ -52,17 +59,3 @@
     </div>
 </div>
 <!-- Footer End -->
-
-<!-- JavaScript Libraries -->
-<script src="{{url('https://code.jquery.com/jquery-3.4.1.min.js')}}"></script>
-<script src="{{url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{url('lib/wow/wow.min.js')}}"></script>
-<script src="{{url('lib/easing/easing.min.js')}}"></script>
-<script src="{{url('lib/waypoints/waypoints.min.js')}}"></script>
-<script src="{{url('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-
-<!-- Template Javascript -->
-<script src="{{url('js/main.js')}}"></script>
-</body>
-
-</html>
