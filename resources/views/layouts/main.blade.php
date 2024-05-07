@@ -2,14 +2,14 @@
 @include('components.head')
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    <div class="container-fluid bg-white p-0">
 
         {{-- @include('components.spinner') --}}
 
         @include('components.navbar')
 
         @yield('content')
-        
+
         @include('components.footer')
 
         <!-- Back to Top -->
