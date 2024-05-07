@@ -20,7 +20,16 @@
             </div>
             <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="{{ route('auth.login') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a>
+        @guest
+            <a href="{{ route('auth.login') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a>
+        @endguest
+        @auth
+            @if (Auth::user()->user_type == 'employee')
+                <a href="{{ route('employee.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile</a>
+            @elseif (Auth::user()->user_type == 'employer')
+                <a href="{{ route('employer.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile</a>
+            @endif
+        @endauth
     </div>
 </nav>
 <!-- Navbar End -->

@@ -9,7 +9,8 @@
                 <div class="row justify-content-center">
                     <div class="col-md-4">
 
-                        <form>
+                        <form method="POST">
+                            @csrf
                             <div class="mb-4 row">
                                 <div class="col">
                                     <input type="text" class="form-control" id="first_name" name="first_name" required>
@@ -22,18 +23,18 @@
                             </div>
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="email" id="form2Example1" class="form-control" />
+                                <input name="email" type="email" id="email" class="form-control" />
                                 <label class="form-label" for="form2Example1">Email address</label>
                             </div>
                           
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="password" id="form2Example2" class="form-control" />
+                                <input name="password" type="password" id="password" class="form-control" />
                                 <label class="form-label" for="form2Example2">Password</label>
                             </div>
                             <!-- Password check -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="password" id="form2Example2" class="form-control" />
+                                <input name="password_confirmation" type="password" id="password_confirmation" class="form-control" />
                                 <label class="form-label" for="form2Example2">Repeat Password</label>
                             </div>
                           
@@ -50,7 +51,7 @@
                             </div>
                           
                             <!-- Submit button -->
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign up</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign up</button>
                           
                             <!-- Register buttons -->
                             <div class="text-center">

@@ -9,16 +9,17 @@
                 <div class="row justify-content-center">
                     <div class="col-md-4">
 
-                        <form>
+                        <form method="POST">
+                          @csrf
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="email" id="form2Example1" class="form-control" />
+                              <input name="email" type="email" id="email" class="form-control" :value="old('email')" required/>
                               <label class="form-label" for="form2Example1">Email address</label>
                             </div>
                           
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="password" id="form2Example2" class="form-control" />
+                              <input name="password" type="password" id="password" class="form-control" required/>
                               <label class="form-label" for="form2Example2">Password</label>
                             </div>
                           
@@ -27,7 +28,7 @@
                               <div class="col d-flex justify-content-center">
                                 <!-- Checkbox -->
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                                  <input class="form-check-input" type="checkbox" value="" id="checkbox" name="checkbox" checked />
                                   <label class="form-check-label" for="form2Example31"> Remember me </label>
                                 </div>
                               </div>
@@ -39,7 +40,7 @@
                             </div>
                           
                             <!-- Submit button -->
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
                           
                             <!-- Register buttons -->
                             <div class="text-center">
