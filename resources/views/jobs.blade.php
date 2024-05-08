@@ -24,14 +24,14 @@
             </ul>
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane fade show p-0 active">
-                        
+
                     @foreach ($jobs as $job)
                         <x-job :job='$job'></x-job>
                     @endforeach
 
                 </div>
                 <div id="tab-2" class="tab-pane fade show p-0">
-                    
+
                     @foreach ($jobs as $job)
                         @if ($job->worktime == 'full time')
                             <x-job :job='$job'></x-job>
@@ -40,7 +40,7 @@
 
                 </div>
                 <div id="tab-3" class="tab-pane fade show p-0">
-                    
+
                     @foreach ($jobs as $job)
                         @if ($job->worktime == 'part time')
                             <x-job :job='$job'></x-job>

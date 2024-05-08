@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('city');
             $table->string('worktime');
             $table->string('salary');
+            $table->string('experience');
+            $table->string('english');
+            $table->string('category');
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Company::class)->constrained()->cascadeOnDelete();

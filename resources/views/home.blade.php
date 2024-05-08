@@ -13,8 +13,8 @@
                             <div class="col-10 col-lg-8">
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                <a href="{{route('auth.login')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+                                <a href="{{route('auth.login')}}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
                             </div>
                         </div>
                     </div>
@@ -28,8 +28,8 @@
                             <div class="col-10 col-lg-8">
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                <a href="{{route('auth.login')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+                                <a href="{{route('auth.login')}}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
                             </div>
                         </div>
                     </div>
@@ -50,16 +50,16 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="row g-0 about-bg rounded overflow-hidden">
                         <div class="col-6 text-start">
-                            <img class="img-fluid w-100" src="img/about-1.jpg">
+                            <img class="img-fluid w-100" src="{{url('img/about-1.jpg')}}">
                         </div>
                         <div class="col-6 text-start">
-                            <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
+                            <img class="img-fluid" src="{{url('img/about-2.jpg')}}" style="width: 85%; margin-top: 15%;">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
+                            <img class="img-fluid" src="{{url('img/about-3.jpg')}}" style="width: 85%;">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid w-100" src="img/about-4.jpg">
+                            <img class="img-fluid w-100" src="{{url('img/about-4.jpg')}}">
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
                     <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
                     <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                    <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                    <a class="btn btn-primary py-3 px-5 mt-3" href="{{route('about')}}">Read More</a>
                 </div>
             </div>
         </div>
@@ -82,11 +82,11 @@
             <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
-                            
+
                         @foreach ($jobs as $job)
                             <x-job :job='$job'></x-job>
                         @endforeach
-    
+
                     </div>
                 </div>
             </div>

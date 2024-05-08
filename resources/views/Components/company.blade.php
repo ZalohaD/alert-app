@@ -1,7 +1,7 @@
 <div class="col-lg-4 mb-2 mt-2">
     <div class="card company-card">
         <div class="card-header bg-transparent border-0">
-            <img  src="{{url('img/com-logo-1.png')}}" style="border-radius: 50px" width="50" height="50" alt="">
+            <img  src="{{url('/img/com-logo-1.jpg')}}" style="border-radius: 50px" width="50" height="50" alt="">
         </div>
         <div class="card-body">
             <h5 class="card-title">{{ $company->name }}</h5>
