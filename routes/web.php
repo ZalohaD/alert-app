@@ -48,7 +48,7 @@ Route::controller(Auth\RegisterController::class)->name('auth.')->group(function
 
 });
 
-Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerController::class)->middleware(['auth.custom', 'employer'])->group(function() { // add middleware (lock route)
+Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerController::class)->middleware(['auth.custom', 'employer'])->group(function() {
 
     Route::get('/home','home')->name('home');
 
@@ -60,7 +60,7 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
 });
 
-Route::prefix('/employee')->name('employee.')->controller(Controllers\UserController::class)->group(function() { // add middleware (lock route)
+Route::prefix('/employee')->name('employee.')->controller(Controllers\UserController::class)->middleware(['auth.custom', 'employee'])->group(function() {
 
     Route::get('/home','home')->name('home');
 
