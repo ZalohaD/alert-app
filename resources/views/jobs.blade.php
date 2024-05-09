@@ -2,56 +2,135 @@
 
 @section('content')
 <div class="container-xxl py-5">
-    <div class="container">
-        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
-        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
-            <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                <li class="nav-item">
-                    <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                        <h6 class="mt-n1 mb-0">All Jobs</h6>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                        <h6 class="mt-n1 mb-0">Full Time</h6>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
-                        <h6 class="mt-n1 mb-0">Part Time</h6>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div id="tab-1" class="tab-pane fade show p-0 active">
+    <div class="container-fluid">
+        <h1 class="text-center mb-5" data-wow-delay="0.1s">Job Listing</h1>
+        <div class="row">
+            
+            <div class="col-md-8" id="job-list">
+                <div class="tab-class text-center" data-wow-delay="0.1s">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
 
-                    @foreach ($jobs as $job)
-                        <x-job :job='$job'></x-job>
-                    @endforeach
+                        @foreach ($jobs as $job)
+                            <x-job :job="$job" />
+                        @endforeach
 
+                    </div>
                 </div>
-                <div id="tab-2" class="tab-pane fade show p-0">
-
-                    @foreach ($jobs as $job)
-                        @if ($job->worktime == 'full time')
-                            <x-job :job='$job'></x-job>
-                        @endif
-                    @endforeach
-
-                </div>
-                <div id="tab-3" class="tab-pane fade show p-0">
-
-                    @foreach ($jobs as $job)
-                        @if ($job->worktime == 'part time')
-                            <x-job :job='$job'></x-job>
-                        @endif
-                    @endforeach
-
+                <div>
+                    {{ $jobs->withQueryString()->links() }}
                 </div>
             </div>
-            <div>
-                {{ $jobs->links() }}
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card">
+                        <article class="card-group-item">
+                            <header class="card-header">
+                                <h6 class="title">Filters</h6>
+                            </header>
+                            <div class="filter-content">
+                                <div class="card-body">
+                                    <form id="filter-form">
+
+                                        <div class="section">
+                                            <h6 class="title">Work time</h6>
+                                            <label for="full_time">
+                                                <input type="radio" name="worktime" id="Full time" value="Full time">
+                                                Full Time
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="worktime" id="Part time" value="Part time">
+                                                Part Time
+                                            </label>
+                                        </div>
+
+                                        <div class="section">
+                                            <h6 class="title">Type of work</h6>
+                                            <label for="full_time">
+                                                <input type="radio" name="type" id="technical" value="technical">
+                                                Technical
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="type" id="non-technical" value="non-technical">
+                                                Non-Technical
+                                            </label>
+                                        </div>
+
+                                        <div class="section">
+                                            <h6 class="title">English</h6>
+                                            <label for="full_time">
+                                                <input type="radio" name="english" id="Beginner" value="Beginner">
+                                                Beginner
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="english" id="Elementary" value="Elementary">
+                                                Elementary
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="english" id="Intermediate" value="Intermediate">
+                                                Intermediate
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="english" id="Upper-intermediate" value="Upper-intermediate">
+                                                Upper-intermediate
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="english" id="Advanced" value="Advanced">
+                                                Advanced
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="english" id="Proficiency" value="Proficiency">
+                                                Proficiency
+                                            </label>
+                                        </div>
+
+                                        <div class="section">
+                                            <h6 class="title">Programing Language</h6>
+                                            <label for="full_time">
+                                                <input type="radio" name="proglang" id="PHP" value="PHP">
+                                                PHP 
+                                                {{-- 'HTML/CSS', 'SQL', 'Node.js', 'React', 'Angular', 'Vue.js', 'Laravel', 'Django', 'Symfony' --}}
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="JavaScript" value="JavaScript">
+                                                JavaScript
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="Python" value="Python">
+                                                Python
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="Java" value="Java">
+                                                Java
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="Ruby" value="Ruby">
+                                                Ruby
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C#" value="C#">
+                                                C#
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="Swift" value="Swift">
+                                                Swift
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                C++
+                                            </label>
+                                        </div>
+
+                                        <button type="submit">Submit</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </div>

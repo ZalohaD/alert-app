@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(Controllers\JobController::class)->group(function() {
 
     Route::get('/jobs','jobs')->name('jobs');
-
+    
     Route::get('/jobs/{id}','job_show')->name('job_show');
 
 });
@@ -91,7 +91,3 @@ Route::get('/404', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-
-Route::get('/post-job', function () {
-
-})->name('job.post');

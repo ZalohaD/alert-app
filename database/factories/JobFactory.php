@@ -19,8 +19,8 @@ class JobFactory extends Factory
      */
     public function definition(): array
     {
-        $worktime = ['full time', 'part time'];
-        $english = ['beginner', 'Elementary', 'Intermediate', 'Upper-intermediate', 'Advanced', 'Proficiency'];
+        $worktime = ['Full time', 'Part time'];
+        $english = ['Beginner', 'Elementary', 'Intermediate', 'Upper-intermediate', 'Advanced', 'Proficiency'];
         $techStacks = ['PHP', 'JavaScript', 'Python', 'Java', 'Ruby', 'C#', 'Swift', 'C++', 'HTML/CSS', 'SQL', 'Node.js', 'React', 'Angular', 'Vue.js', 'Laravel', 'Django', 'Symfony'];
 
 
@@ -31,7 +31,7 @@ class JobFactory extends Factory
             'worktime' => $worktime[rand(0,1)],
             'experience'=> fake()->randomNumber(1,7),
             'english' => $english[array_rand($english)],
-            'category' => fake()->randomElement($techStacks),
+            'proglang' => fake()->randomElement($techStacks),
             'salary' => number_format(fake()->numberBetween(5000, 100000), 0, '.', '.'),
             'category_id' => Category::inRandomOrder()->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,

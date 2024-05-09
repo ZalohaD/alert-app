@@ -74,7 +74,7 @@
                         <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: {{$job->salary}}</p>
                         <p><i class="fa fa-angle-right text-primary me-2"></i>English Level: {{$job->english}}</p>
                         <p><i class="fa fa-angle-right text-primary me-2"></i>Required experience: {{$job->experience}} year(s)</p>
-                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job category {{$job->category}}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job category: {{$job->category->name}}</p>
                     </div>
                     <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
                         <h4 class="mb-4">Company Detail</h4>

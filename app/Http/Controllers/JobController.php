@@ -8,9 +8,24 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function jobs(){
-        $jobs = Job::paginate(10);
-        return view("jobs", ["jobs"=> $jobs]);
+    public function jobs(Request $request){
+        $data = $request->all();
+
+        $query = Job::query();
+
+        if(isset($data['worktime'])) {
+            $query->where('worktime', $data['worktime']);
+        }
+        if(isset($data['english'])) {
+            $query->where('english', $data['english']);
+        }
+        if(isset($data['proglang'])) {
+            $query->where('proglang', $data['proglang']);
+        }
+
+        $jobs = $query->paginate(10);
+
+        return view("jobs", compact('jobs'));
     }
 
     public function job_show($id){
