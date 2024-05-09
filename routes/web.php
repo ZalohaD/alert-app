@@ -11,6 +11,12 @@ Route::controller(Controllers\JobController::class)->group(function() {
     Route::get('/jobs','jobs')->name('jobs');
     
     Route::get('/jobs/{id}','job_show')->name('job_show');
+    
+    Route::get('/jobs/{id}/edit','job_edit')->middleware(['auth.custom', 'employer'])->name('job_edit');
+
+    Route::delete('/jobs/{id}', 'job_delete')->name('job_delete');
+
+    Route::get('/jobtest', 'job_test')->name('job_test');
 
 });
 
@@ -52,7 +58,7 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
     Route::get('/home','home')->name('home');
 
-    Route::get('/jobs','jobs_list')->name('jobs_list');
+    Route::post('/home', 'profile_store')->name('profile_store');
 
     Route::get('/create','create_job')->name('create_job');
 
@@ -66,7 +72,7 @@ Route::prefix('/employee')->name('employee.')->controller(Controllers\UserContro
 
     Route::get('/edit','create_portfolio')->name('create_portfolio');
 
-    Route::post('/index','store_portfolio')->name('store_portfolio');
+    Route::post('/home','store_portfolio')->name('store_portfolio');
 
 });
 

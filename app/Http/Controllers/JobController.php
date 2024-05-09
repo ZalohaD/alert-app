@@ -32,4 +32,19 @@ class JobController extends Controller
         $job = Job::find($id);
         return view("job_show", ["job"=> $job]);
     }
+
+    public function job_edit($id){
+        $job = Job::findOrFail($id);
+        return view('job_edit', compact('job'));
+    }
+
+    public function job_delete($id){
+        $job = Job::findOrFail($id);
+        $job->delete();
+        return redirect()->route('employer.home')->with('success', 'Success');
+    }
+
+    public function job_test(){
+        return view('job-list');
+    }
 }
