@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\Auth;
+use App\Http\Middleware\Employee;
 use App\Http\Middleware\Employer;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'employer' => Employer::class,
+            'employee' => Employee::class,
             'auth.custom' => Auth::class,
         ]);
     })

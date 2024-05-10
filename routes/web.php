@@ -66,7 +66,7 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
 });
 
-Route::prefix('/employee')->name('employee.')->controller(Controllers\UserController::class)->middleware(['auth.custom', 'employee'])->group(function() {
+Route::prefix('/employee')->name('employee.')->controller(Controllers\EmployeeController::class)->middleware(['auth.custom', 'employee'])->group(function() {
 
     Route::get('/home','home')->name('home');
 
