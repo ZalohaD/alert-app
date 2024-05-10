@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('salary');
             $table->string('experience');
             $table->string('english');
-            $table->string('proglang');
+            // $table->string('proglang');
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Company::class)->constrained()->cascadeOnDelete();

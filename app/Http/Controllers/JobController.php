@@ -20,7 +20,9 @@ class JobController extends Controller
             $query->where('english', $data['english']);
         }
         if(isset($data['proglang'])) {
-            $query->where('proglang', $data['proglang']);
+            $query->whereHas('tags', function ($query) use ($data) {
+                $query->where('name', $data['proglang']);
+            });
         }
 
         $jobs = $query->paginate(10);

@@ -31,7 +31,7 @@ class JobFactory extends Factory
             'worktime' => $worktime[rand(0,1)],
             'experience'=> fake()->randomNumber(1,7),
             'english' => $english[array_rand($english)],
-            'proglang' => fake()->randomElement($techStacks),
+            // 'proglang' => fake()->randomElement($techStacks),
             'salary' => number_format(fake()->numberBetween(5000, 100000), 0, '.', '.'),
             'category_id' => Category::inRandomOrder()->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,

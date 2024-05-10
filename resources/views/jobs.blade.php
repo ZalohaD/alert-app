@@ -88,8 +88,7 @@
                                             <h6 class="title">Programing Language</h6>
                                             <label for="full_time">
                                                 <input type="radio" name="proglang" id="PHP" value="PHP">
-                                                PHP 
-                                                {{-- 'HTML/CSS', 'SQL', 'Node.js', 'React', 'Angular', 'Vue.js', 'Laravel', 'Django', 'Symfony' --}}
+                                                PHP
                                             </label>
                                             <label for="part_time">
                                                 <input type="radio" name="proglang" id="JavaScript" value="JavaScript">
@@ -118,6 +117,42 @@
                                             <label for="part_time">
                                                 <input type="radio" name="proglang" id="C++" value="C++">
                                                 C++
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                HTML/CSS
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                SQL
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                Node.js
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                React
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                Angular
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                Vue.js
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                Laravel
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                Django
+                                            </label>
+                                            <label for="part_time">
+                                                <input type="radio" name="proglang" id="C++" value="C++">
+                                                Symphony
                                             </label>
                                         </div>
 

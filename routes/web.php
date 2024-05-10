@@ -36,17 +36,17 @@ Route::controller(Controllers\CompanyController::class)->group(function() {
 
 });
 
-Route::controller(Auth\LoginController::class)->name('auth.')->group(function() {
+Route::controller(Auth\LoginController::class)->name('auth.')->middleware('guest')->group(function() {
 
     Route::get('/login', 'login')->name('login');
     
     Route::post('/login', 'login_validate')->name('login_validate');
 
-    Route::post('/logout', 'logout')->name('logout');
-
 });
 
-Route::controller(Auth\RegisterController::class)->name('auth.')->group(function() {
+Route::post('/logout', [Auth\LoginController::class, 'logout'])->middleware('auth.custom')->name('auth.logout');
+
+Route::controller(Auth\RegisterController::class)->name('auth.')->middleware('guest')->group(function() {
 
     Route::get('/register','register')->name('register');
     

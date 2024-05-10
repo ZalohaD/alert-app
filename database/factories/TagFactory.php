@@ -16,10 +16,12 @@ class TagFactory extends Factory
      */
     public function definition(): array
     {
-        $tags = ['Technical', 'Non-Technical', 'Remote', 'Office'];
+        static $index = 0;
+
+        $tags = ['Technical', 'Non-Technical', 'Remote', 'Office', 'PHP', 'JavaScript', 'Python', 'Java', 'Ruby', 'C#', 'Swift', 'C++', 'HTML/CSS', 'SQL', 'Node.js', 'React', 'Angular', 'Vue.js', 'Laravel', 'Django', 'Symfony'];
 
         return [
-            'name' => $tags[rand(0,3)]
+            'name' => $tags[$index++ % count($tags)]
         ];
     }
 }

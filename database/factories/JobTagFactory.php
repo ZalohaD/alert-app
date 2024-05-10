@@ -7,9 +7,9 @@ use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TagJob>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\JobTag>
  */
-class TagJobFactory extends Factory
+class JobTagFactory extends Factory
 {
     /**
      * Define the model's default state.
