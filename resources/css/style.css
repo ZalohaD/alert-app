@@ -14,6 +14,10 @@
     z-index: 99;
 }
 
+.gap-15{
+    gap: 15px;
+}
+
 
 .pb-150{
     padding-bottom: 150px;
@@ -981,3 +985,6 @@
     order: 2px solid transparent
 }
 
+.filter-card{
+    background: rgba(221, 41, 66, 1);
+}

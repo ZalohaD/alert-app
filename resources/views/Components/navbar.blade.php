@@ -25,9 +25,9 @@
         @endguest
         @auth
             @if (Auth::user()->user_type == 'employee')
-                <a href="{{ route('employee.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile</a>
+                <a href="{{ route('employee.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-4 d-none d-lg-flex gap-15"><img src="{{url('img/user-regular.svg')}}" alt="">Profile</a>
             @elseif (Auth::user()->user_type == 'employer')
-                <a href="{{ route('employer.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile</a>
+                <a href="{{ route('employer.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-4 d-none d-lg-flex gap-15"><img src="{{url('img/user-regular.svg')}}" alt=""> Profile</a>
             @endif
         @endauth
     </div>
