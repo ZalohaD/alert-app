@@ -64,13 +64,12 @@
                             <div class="section">
                                 <h6 class="title">Programming Language</h6>
                                 @foreach ($langs as $lang)
-                                    <label class="form-check-label p-1" for="PHP">
-                                        <input class="form-check-input" type="radio" name="proglang" id="PHP" value="PHP">
+                                    <label class="form-check-label p-1" for="{{ $lang->name }}">
+                                        <input class="form-check-input" type="radio" name="proglang" id="{{ $lang->name }}" value="{{ $lang->name }}">
                                         {{ $lang->name }}
                                     </label>
                                 @endforeach
                             </div>
-
 
                             <button class="btn btn-primary btn-lg mt-3" type="submit">Submit</button>
 

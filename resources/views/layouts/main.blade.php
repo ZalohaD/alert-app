@@ -4,8 +4,6 @@
 <body>
     <div class="container-fluid bg-white p-0">
 
-        {{-- @include('components.spinner') --}}
-
         @include('components.navbar')
 
         @yield('content')

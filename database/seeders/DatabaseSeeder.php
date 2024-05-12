@@ -5,9 +5,8 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Job;
-use App\Models\JobTag;
+use App\Models\JobLanguage;
 use App\Models\ProgrammingLanguage;
-use App\Models\Tag;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -24,5 +23,6 @@ class DatabaseSeeder extends Seeder
         Company::factory(20)->create();
         ProgrammingLanguage::factory(17)->create();
         Job::factory(100)->create();
+        JobLanguage::factory(100)->create();
     }
 }

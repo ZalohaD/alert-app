@@ -12,11 +12,25 @@ use Illuminate\Support\Facades\Auth;
 class EmployerController extends Controller
 {
     public function home(Request $request){
+        $companies = Company::all();
+        return view('profile.employer.home', compact('companies'));
+    }
+
+    public function jobs(){
         $userId = Auth::id();
         $jobs = Job::where('user_id', $userId)->get();
+        return view('profile.employer.jobs', compact('jobs'));
+    }
+
+    public function create_job(){
         $categories = Category::all();
-        $companies = Company::all();
-        return view('profile.employer.main', compact('jobs', 'categories', 'companies'));
+        return view('profile.employer.create_job', compact('categories'));
+    }
+
+    public function delete_job($id){
+        $job = Job::findOrFail($id);
+        $job->delete();
+        return redirect()->route('employer.jobs')->with('success', 'Success');
     }
 
     public function profile_store(Request $request){
@@ -40,6 +54,8 @@ class EmployerController extends Controller
         $data = $request->all();
         $user = User::find(auth()->user()->id);
 
+        // add validation
+
         $job = Job::create([
             'title' => $data['job-title'],
             'description' => $data['description'],
@@ -53,6 +69,6 @@ class EmployerController extends Controller
             'company_id' => $user->company_id
         ]);
 
-        return redirect()->route('employer.home');
+        return redirect()->route('employer.jobs');
     }
 }

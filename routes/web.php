@@ -14,10 +14,6 @@ Route::controller(Controllers\JobController::class)->group(function() {
     
     Route::get('/jobs/{id}/edit','job_edit')->middleware(['auth.custom', 'employer'])->name('job_edit');
 
-    Route::delete('/jobs/{id}', 'job_delete')->name('job_delete');
-
-    Route::get('/jobtest', 'job_test')->name('job_test');
-
 });
 
 Route::controller(Controllers\CategoryController::class)->group(function() {
@@ -60,9 +56,13 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
     Route::post('/home', 'profile_store')->name('profile_store');
 
+    Route::get('/jobs', 'jobs')->name('jobs');
+
     Route::get('/create','create_job')->name('create_job');
 
     Route::post('/index','store_job')->name('store_job');
+
+    Route::delete('/jobs/{id}', 'delete_job')->name('delete_job');
 
 });
 
