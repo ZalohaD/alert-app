@@ -63,74 +63,12 @@
 
                             <div class="section">
                                 <h6 class="title">Programming Language</h6>
-                                <label class="form-check-label p-1" for="PHP">
-                                    <input class="form-check-input" type="radio" name="proglang" id="PHP" value="PHP">
-                                    PHP
-                                </label>
-                                <label class="form-check-label p-1" for="JavaScript">
-                                    <input class="form-check-input" type="radio" name="proglang" id="JavaScript" value="JavaScript">
-                                    JavaScript
-                                </label>
-                                <label class="form-check-label p-1" for="Python">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Python" value="Python">
-                                    Python
-                                </label>
-                                <label class="form-check-label p-1" for="Java">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Java" value="Java">
-                                    Java
-                                </label>
-                                <label class="form-check-label p-1" for="Ruby">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Ruby" value="Ruby">
-                                    Ruby
-                                </label>
-                                <label class="form-check-label p-1" for="C#">
-                                    <input class="form-check-input" type="radio" name="proglang" id="C#" value="C#">
-                                    C#
-                                </label>
-                                <label class="form-check-label p-1" for="Swift">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Swift" value="Swift">
-                                    Swift
-                                </label>
-                                <label class="form-check-label p-1" for="C++">
-                                    <input class="form-check-input" type="radio" name="proglang" id="C++" value="C++">
-                                    C++
-                                </label>
-                                <label class="form-check-label p-1" for="HTML/CSS">
-                                    <input class="form-check-input" type="radio" name="proglang" id="HTML/CSS" value="HTML/CSS">
-                                    HTML/CSS
-                                </label>
-                                <label class="form-check-label p-1" for="SQL">
-                                    <input class="form-check-input" type="radio" name="proglang" id="SQL" value="SQL">
-                                    SQL
-                                </label>
-                                <label class="form-check-label p-1" for="Node.js">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Node.js" value="Node.js">
-                                    Node.js
-                                </label>
-                                <label class="form-check-label p-1" for="React">
-                                    <input class="form-check-input" type="radio" name="proglang" id="React" value="React">
-                                    React
-                                </label>
-                                <label class="form-check-label p-1" for="Angular">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Angular" value="Angular">
-                                    Angular
-                                </label>
-                                <label class="form-check-label p-1" for="Vue.js">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Vue.js" value="Vue.js">
-                                    Vue.js
-                                </label>
-                                <label class="form-check-label p-1" for="Laravel">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Laravel" value="Laravel">
-                                    Laravel
-                                </label>
-                                <label class="form-check-label p-1" for="Django">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Django" value="Django">
-                                    Django
-                                </label>
-                                <label class="form-check-label p-1" for="Symphony">
-                                    <input class="form-check-input" type="radio" name="proglang" id="Symphony" value="Symphony">
-                                    Symphony
-                                </label>
+                                @foreach ($langs as $lang)
+                                    <label class="form-check-label p-1" for="PHP">
+                                        <input class="form-check-input" type="radio" name="proglang" id="PHP" value="PHP">
+                                        {{ $lang->name }}
+                                    </label>
+                                @endforeach
                             </div>
 
 

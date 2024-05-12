@@ -24,71 +24,19 @@
                         <h3>Update your profile</h3>
                         <div class="card bg-white mt-4 mb-4">
                             <div class="card-body">
-                                <form action="{{ route('employer.profile_store') }}" method="POST">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="first_name">First name</label>
-                                        <input type="text" class="form-control" name="first_name" value="{{ Auth::user()->first_name }}">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <label for="last_name">Last name</label>
-                                        <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}">
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
-                                    </div>
-                                    {{-- <div class="form-group mt-3">
-                                        <label for="email">Company</label>
-                                        <input type="email" class="form-control" name="company" value="">
-                                    </div> --}}
-                                    <div class="form-group mt-3">
-                                        <button class="btn btn-primary" type="submit">Submit</button>
-                                    </div>
-                                </form>
+                                <x-profile.employer.info :$companies />
                             </div>
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="vacancies-tab">
                         <h3>My Jobs</h3>
-                        <table class="table text-center">
-                            <thead>
-                            <tr>
-                                <th scope="col">SL</th>
-                                <th scope="col">Job Title:</th>
-                                <th scope="col">Job City:</th>
-                                <th scope="col">Job Posted:</th>
-                                <th scope="col">Status:</th>
-                                <th scope="col">Action:</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($jobs as $index => $job)
-                                    <tr>
-                                        <th>{{ $index + 1 }}</th>
-                                        <td>{{ $job->title }}</td>
-                                        <td>{{ $job->city }}</td>
-                                        <td>{{ $job->created_at }}</td>
-                                        <td>status</td>
-                                        <td>
-                                            <a href="{{ route('job_show', $job->id) }}" class="btn btn-success btn-sm">View</a>
-                                            <a href="{{ route('job_edit', $job->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('job_delete', $job->id) }}" method="POST" style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
+                        <x-profile.employer.jobs :$jobs />
                     </div>
                     
                     <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="create-tab">
-                        {{-- Create job form --}}
+                        <h3>Post a job</h3>
+                        <x-profile.employer.create :$categories />
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::where('user_type', 'employer')->inRandomOrder()->first(),
+            // 'user_id' => User::where('user_type', 'employer')->inRandomOrder()->first(),
             'name' => fake()->company(),
             'description' => fake()->realText(200),
             'employees' => rand(10,1000),
