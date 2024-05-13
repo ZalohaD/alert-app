@@ -15,13 +15,6 @@
         @enderror
     </div>
     <div class="form-group mt-3">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
-        @error('email')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
-    </div>
-    <div class="form-group mt-3">
         <button class="btn btn-primary" type="submit">Submit</button>
     </div>
 </form>

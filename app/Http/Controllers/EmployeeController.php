@@ -19,16 +19,12 @@ class EmployeeController extends Controller
 
         request()->validate([
             'first_name' => ['required', 'min:3', 'max:30'],
-            'last_name' => ['required', 'min:3', 'max:30'],
-            'email' => ['required', 'email', 'max:50', 'unique:users,email']
-        ], [
-            'email.unique' => 'Email already taken',
+            'last_name' => ['required', 'min:3', 'max:30']
         ]);
 
         $user->update([
             'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email']
+            'last_name' => $data['last_name']
         ]);
 
         return redirect()->route('employee.home');

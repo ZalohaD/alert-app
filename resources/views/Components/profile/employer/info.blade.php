@@ -15,17 +15,10 @@
         @enderror
     </div>
     <div class="form-group mt-3">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
-        @error('email')
-            <p class="text-danger">{{ $message }}</p>
-        @enderror
-    </div>
-    <div class="form-group mt-3">
         <label for="company">Company</label>
         <select class="form-control" name="company">
             @foreach ($companies as $company)
-                <option value="{{ $company->id }}" @if (Auth::user()->company->id == $company->id) selected @endif>{{ $company->name }}</option>
+                <option value="{{ $company->id }}" @if (optional(Auth::user()->company)->id == $company->id) selected @endif>{{ $company->name }}</option>
             @endforeach
         </select>
         @error('company')
