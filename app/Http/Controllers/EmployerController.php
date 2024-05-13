@@ -48,8 +48,10 @@ class EmployerController extends Controller
         request()->validate([
             'first_name' => ['required', 'min:3', 'max:30'],
             'last_name' => ['required', 'min:3', 'max:30'],
-            'email' => ['required', 'email', 'max:50'],
+            'email' => ['required', 'email', 'max:50', 'unique:users,email'],
             'company' => ['required']
+        ], [
+            'email.unique' => 'Email already taken',
         ]);
 
         $user->update([

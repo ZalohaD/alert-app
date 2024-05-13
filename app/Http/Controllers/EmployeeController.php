@@ -17,7 +17,13 @@ class EmployeeController extends Controller
 
         $user = User::find(auth()->user()->id);
 
-        // add validation
+        request()->validate([
+            'first_name' => ['required', 'min:3', 'max:30'],
+            'last_name' => ['required', 'min:3', 'max:30'],
+            'email' => ['required', 'email', 'max:50', 'unique:users,email']
+        ], [
+            'email.unique' => 'Email already taken',
+        ]);
 
         $user->update([
             'first_name' => $data['first_name'],

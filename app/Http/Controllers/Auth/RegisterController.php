@@ -19,16 +19,12 @@ class RegisterController extends Controller
         request()->validate([
             'first_name' =>['required', 'min:3'],
             'last_name' =>['required', 'min:3'],
-            'email' =>['required', 'email', 'max:254'],
+            'email' =>['required', 'email', 'max:254', 'unique:users,email'],
             'password' =>['required', 'min:6'],
             'user_type' => ['required']
+        ], [
+            'email.unique' => 'Email already taken',
         ]);
-
-        if (User::where('email', $request->email)) {
-            throw ValidationException::withMessages([
-                'email' => 'Email already taken'
-            ]);
-        };
 
         $user = User::create([
             'first_name' => $request->first_name,
