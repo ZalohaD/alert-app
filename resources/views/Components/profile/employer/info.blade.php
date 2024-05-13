@@ -3,31 +3,34 @@
     <div class="form-group">
         <label for="first_name">First name</label>
         <input type="text" class="form-control" name="first_name" value="{{ Auth::user()->first_name }}">
+        @error('first_name')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
     </div>
     <div class="form-group mt-3">
         <label for="last_name">Last name</label>
         <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}">
+        @error('last_name')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
     </div>
     <div class="form-group mt-3">
         <label for="email">Email</label>
         <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
-    </div>
-    <div class="form-group mt-3">
-        @if (!Auth::user()->company_id)
-            <p>Choose your company</p>
-        @else
-            <p>Your company: {{ $companies->find(Auth::user()->company_id)->name }}</p>
-        @endif
-        
+        @error('email')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
     </div>
     <div class="form-group mt-3">
         <label for="company">Company</label>
         <select class="form-control" name="company">
-            <option value="" selected disabled>Choose company</option>
             @foreach ($companies as $company)
-                <option value="{{ $company->id }}">{{ $company->name }}</option>
+                <option value="{{ $company->id }}" @if (Auth::user()->company->id == $company->id) selected @endif>{{ $company->name }}</option>
             @endforeach
         </select>
+        @error('company')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
     </div>
     <div class="form-group mt-3">
         <button class="btn btn-primary" type="submit">Submit</button>

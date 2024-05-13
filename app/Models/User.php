@@ -48,4 +48,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function portfolio(){
         return $this->hasOne(Portfolio::class);
     }
+
+    public function testimonial(){
+        return $this->hasOne(Testimonial::class);
+    }
 }

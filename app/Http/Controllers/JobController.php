@@ -34,7 +34,6 @@ class JobController extends Controller
     }
 
     public function job_show(Job $job){
-        $job = Job::find($job->id);
         return view("job_show", compact('job'));
     }
 }

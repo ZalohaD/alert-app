@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 class EmployerController extends Controller
 {
-    public function home(Request $request){
+    public function home(){
         $companies = Company::all();
         return view('profile.employer.home', compact('companies'));
     }
@@ -34,12 +34,23 @@ class EmployerController extends Controller
         return redirect()->route('employer.jobs')->with('success', 'Success');
     }
 
+    public function job_edit($id) {
+        $job = Job::findOrFail($id);
+        $categories = Category::all();
+        return view('profile.employer.job_edit', compact('job', 'categories'));
+    }
+
     public function profile_store(Request $request){
         $data = $request->all();
 
         $user = User::find(auth()->user()->id);
 
-        // add validation
+        request()->validate([
+            'first_name' => ['required', 'min:3', 'max:30'],
+            'last_name' => ['required', 'min:3', 'max:30'],
+            'email' => ['required', 'email', 'max:50'],
+            'company' => ['required']
+        ]);
 
         $user->update([
             'first_name' => $data['first_name'],
@@ -55,20 +66,41 @@ class EmployerController extends Controller
         $data = $request->all();
         $user = User::find(auth()->user()->id);
 
-        // add validation
-
-        $job = Job::create([
-            'title' => $data['job-title'],
-            'description' => $data['description'],
-            'city' => $data['city'],
-            'worktime' => $data['worktime'],
-            'salary' => $data['salary'],
-            'experience' => $data['experience'],
-            'english' => $data['english'],
-            'category_id' => Category::where('name', $data['category'])->first()->id,
-            'user_id' => $user->id,
-            'company_id' => $user->company_id
+        request()->validate([
+            'job-title' => ['required', 'min:5', 'max:100'],
+            'description' => ['required', 'min:20', 'max:256'],
+            'city' => ['required', 'max:100'],
+            'salary' => ['required', 'integer'],
+            'experience' => ['required', 'integer'],
         ]);
+
+        if (!$request->id) {
+            Job::create([
+                'title' => $data['job-title'],
+                'description' => $data['description'],
+                'city' => $data['city'],
+                'worktime' => $data['worktime'],
+                'salary' => $data['salary'],
+                'experience' => $data['experience'],
+                'english' => $data['english'],
+                'category_id' => Category::where('name', $data['category'])->first()->id,
+                'user_id' => $user->id,
+                'company_id' => $user->company_id
+            ]);
+        } else {
+            Job::find($request->id)->update([
+                'title' => $data['job-title'],
+                'description' => $data['description'],
+                'city' => $data['city'],
+                'worktime' => $data['worktime'],
+                'salary' => $data['salary'],
+                'experience' => $data['experience'],
+                'english' => $data['english'],
+                'category_id' => Category::where('name', $data['category'])->first()->id,
+                'user_id' => $user->id,
+                'company_id' => $user->company_id
+            ]);
+        }
 
         return redirect()->route('employer.jobs');
     }

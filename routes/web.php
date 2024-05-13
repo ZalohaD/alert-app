@@ -4,6 +4,7 @@ use App\Http\Controllers as Controllers;
 use App\Http\Controllers\Auth as Auth;
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(Controllers\JobController::class)->group(function() {
@@ -54,21 +55,21 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
     Route::get('/home','home')->name('home');
 
-    Route::post('/home', 'profile_store')->name('profile_store');
+    Route::post('/profile_store', 'profile_store')->name('profile_store');
 
     Route::get('/jobs', 'jobs')->name('jobs');
 
     Route::get('/create','create_job')->name('create_job');
 
-    Route::post('/create','store_job')->name('store_job');
+    Route::post('/store_job','store_job')->name('store_job');
 
     Route::get('/settings','settings')->name('settings');
 
     Route::post('/settings','store_settings')->name('store_settings');
 
-    Route::get('/jobs/{job:title}/edit','job_edit')->name('job_edit');
+    Route::get('/jobs/{id}/edit','job_edit')->name('job_edit');
 
-    Route::delete('/jobs/{id}', 'delete_job')->name('delete_job'); //to check
+    Route::delete('/jobs/{id}', 'delete_job')->name('delete_job');
 
 });
 
@@ -90,17 +91,15 @@ Route::prefix('/employee')->name('employee.')->controller(Controllers\EmployeeCo
 
 Route::get('/', function () {
     $jobs = Job::take(5)->get();
-    $categories = Category::all();
-    return view('home', compact('jobs', 'categories'));
+    $categories = Category::with('jobs')->get();
+    $testimonials = Testimonial::with('user')->get();
+    return view('home', compact('jobs', 'categories', 'testimonials'));
 })->name('home');
 
 Route::get('/about', function () {
-    return view('about');
+    $testimonials = Testimonial::with('user')->get();
+    return view('about', compact('testimonials'));
 })->name('about');
-
-Route::get('/testimonial', function () {
-    return view('testimonials');
-})->name('testimonial');
 
 Route::get('/contact', function () {
     return view('contact');

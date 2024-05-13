@@ -14,15 +14,21 @@
                           @csrf
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input name="email" type="email" id="email" class="form-control" :value="old('email')" required/>
+                              <input name="email" type="email" id="email" class="form-control" :value="old("email")" required/>
                               <label class="form-label" for="form2Example1">Email address</label>
                             </div>
+
+                            
 
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
                               <input name="password" type="password" id="password" class="form-control" required/>
                               <label class="form-label" for="form2Example2">Password</label>
                             </div>
+
+                            @error('email')
+                               <p class="text-danger">{{ $message }}</p>
+                            @enderror
 
                             <!-- 2 column grid layout for inline styling -->
                             <div class="row mb-4">

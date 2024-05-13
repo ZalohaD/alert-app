@@ -13,22 +13,34 @@
                             @csrf
                             <div class="mb-4 row">
                                 <div class="col">
+                                    @error('first_name')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                     <input type="text" class="form-control" id="first_name" name="first_name" required>
                                     <label for="first_name" class="form-label">First Name</label>
                                 </div>
                                 <div class="col">
+                                    @error('last_name')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                     <input type="text" class="form-control" id="last_name" name="last_name" required>
                                     <label for="last_name" class="form-label">Last Name</label>
                                 </div>
                             </div>
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
+                                @error('email')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                                 <input name="email" type="email" id="email" class="form-control" />
                                 <label class="form-label" for="form2Example1">Email address</label>
                             </div>
                           
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
+                                @error('password')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                                 <input name="password" type="password" id="password" class="form-control" />
                                 <label class="form-label" for="form2Example2">Password</label>
                             </div>
