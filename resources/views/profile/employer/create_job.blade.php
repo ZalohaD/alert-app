@@ -1,4 +1,4 @@
-@extends('layouts.profile')
+@extends('layouts.employer.profile')
 
 @section('profile')
     <h3>Post a job</h3>

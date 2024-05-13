@@ -10,6 +10,7 @@
                 <a class="d-flex align-items-center text-start mx-3 pb-3 active" href="{{ route('employer.home') }}">Profile</a>
                 <a class="d-flex align-items-center text-start mx-3 pb-3" href="{{ route('employer.jobs') }}">My jobs</a>
                 <a class="d-flex align-items-center text-start mx-3 pb-3" href="{{ route('employer.create_job') }}">Create job</a>
+                <a class="d-flex align-items-center text-start mx-3 pb-3" href="{{ route('employer.settings') }}">Settings</a>
                 <form method="POST" action="{{ route('auth.logout') }}">
                     @csrf
                     <button class="btn text-danger mb-5" type="submit">Logout</button>

@@ -1,4 +1,4 @@
-@extends('layouts.profile')
+@extends('layouts.employer.profile')
 
 @section('profile')
     <h3>Update your profile</h3>

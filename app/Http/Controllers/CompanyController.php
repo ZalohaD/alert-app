@@ -12,8 +12,12 @@ class CompanyController extends Controller
         return view('companies', compact('companies'));
     }
 
-    public function company_show($id) {
-        $company = Company::find($id);
+    public function company_show(Company $company) {
         return view('company_show', compact('company'));
+    }
+
+    public function company_jobs(Company $company) {
+        $jobs = $company->jobs()->paginate(10);
+        return view('company_jobs', compact('company', 'jobs'));
     }
 }

@@ -12,9 +12,9 @@ class CategoryController extends Controller
         return view("categories", ["categories"=> $categories]);
     }
 
-    public function category_show($id){
-        $category = Category::find($id);
+    public function category_show(Category $category){
+        $jobs = $category->jobs()->paginate(10);
 
-        return view('category', compact('category'));
+        return view('category', compact('jobs'));
     }
 }

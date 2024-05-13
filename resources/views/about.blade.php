@@ -23,10 +23,10 @@
                                 <a href="{{ route('auth.login') }}" class="btn about-btn">Login to search job<i class="fa fa-arrow-right ms-3"></i></a>
                             @endguest
                             @auth
-                                @if (Auth::user()->user_type == 'employee')
-                                    <a href="{{ route('employee.home') }}" class="btn about-btn">Post a job</a>
-                                @elseif (Auth::user()->user_type == 'employer')
-                                    <a href="{{ route('employer.home') }}" class="btn about-btn">Apply for job</a>
+                                @if (Auth::user()->user_type == 'employer')
+                                    <a href="{{ route('employer.create_job') }}" class="btn about-btn">Post a job</a>
+                                @elseif (Auth::user()->user_type == 'employee')
+                                    <a href="{{ route('employee.create_portfolio') }}" class="btn about-btn">Apply for job</a>
                                 @endif
                             @endauth
                         </div>

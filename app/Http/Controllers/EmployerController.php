@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EmployerController extends Controller
 {
@@ -70,5 +71,27 @@ class EmployerController extends Controller
         ]);
 
         return redirect()->route('employer.jobs');
+    }
+
+    public function settings(){
+        return view('profile.employer.settings');
+    }
+
+    public function store_settings(Request $request){
+        $user = User::find(auth()->user()->id);
+
+        if (! Hash::check($request->password, $user->password)) {
+            return redirect()->route('employer.settings')->withErrors(['error' => 'Wrong password!']);
+        }
+
+        if ($request->new_password != $request->password_confirmation) {
+            return redirect()->route('employer.settings')->withErrors(['error' => 'Password don\'t match!']);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return redirect()->route('employer.settings');
     }
 }

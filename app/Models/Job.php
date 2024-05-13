@@ -18,4 +18,8 @@ class Job extends Model
     public function languages() {
         return $this->belongsToMany(ProgrammingLanguage::class);
     }
+
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
 }

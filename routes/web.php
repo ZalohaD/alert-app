@@ -10,9 +10,7 @@ Route::controller(Controllers\JobController::class)->group(function() {
 
     Route::get('/jobs','jobs')->name('jobs');
     
-    Route::get('/jobs/{id}','job_show')->name('job_show');
-    
-    Route::get('/jobs/{id}/edit','job_edit')->middleware(['auth.custom', 'employer'])->name('job_edit');
+    Route::get('/jobs/{job:title}','job_show')->name('job_show');
 
 });
 
@@ -20,7 +18,7 @@ Route::controller(Controllers\CategoryController::class)->group(function() {
 
     Route::get('/categories','categories')->name('categories');
 
-    Route::get('/categories/{id}','category_show')->name('category_show');
+    Route::get('/categories/{category:name}','category_show')->name('category_show');
 
 });
 
@@ -28,7 +26,9 @@ Route::controller(Controllers\CompanyController::class)->group(function() {
 
     Route::get('/companies', 'companies')->name('companies');
 
-    Route::get('/companies/{id}', 'company_show')->name('company_show');
+    Route::get('/companies/{company:name}', 'company_show')->name('company_show');
+
+    Route::get('/companies/{company:name}/jobs', 'company_jobs')->name('company_jobs');
 
 });
 
@@ -60,9 +60,15 @@ Route::prefix('/employer')->name('employer.')->controller(Controllers\EmployerCo
 
     Route::get('/create','create_job')->name('create_job');
 
-    Route::post('/index','store_job')->name('store_job');
+    Route::post('/create','store_job')->name('store_job');
 
-    Route::delete('/jobs/{id}', 'delete_job')->name('delete_job');
+    Route::get('/settings','settings')->name('settings');
+
+    Route::post('/settings','store_settings')->name('store_settings');
+
+    Route::get('/jobs/{job:title}/edit','job_edit')->name('job_edit');
+
+    Route::delete('/jobs/{id}', 'delete_job')->name('delete_job'); //to check
 
 });
 
@@ -70,9 +76,15 @@ Route::prefix('/employee')->name('employee.')->controller(Controllers\EmployeeCo
 
     Route::get('/home','home')->name('home');
 
-    Route::get('/edit','create_portfolio')->name('create_portfolio');
+    Route::post('/home', 'profile_store')->name('profile_store');
 
-    Route::post('/home','store_portfolio')->name('store_portfolio');
+    Route::get('/portfolio','create_portfolio')->name('create_portfolio');
+
+    Route::post('/portfolio','store_portfolio')->name('store_portfolio');
+
+    Route::get('/settings','settings')->name('settings');
+
+    Route::post('/settings','store_settings')->name('store_settings');
 
 });
 
@@ -89,10 +101,6 @@ Route::get('/about', function () {
 Route::get('/testimonial', function () {
     return view('testimonials');
 })->name('testimonial');
-
-Route::get('/404', function () {
-    return view('404');
-})->name('404');
 
 Route::get('/contact', function () {
     return view('contact');
