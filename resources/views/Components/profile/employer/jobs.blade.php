@@ -18,7 +18,7 @@
                 <td>{{ $job->created_at }}</td>
                 <td>status</td>
                 <td>
-                    <a href="{{ route('job_show', $job->id) }}" class="btn btn-success btn-sm">View</a>
+                    <a href="{{ route('job_show', $job) }}" class="btn btn-success btn-sm">View</a>
                     <a href="{{ route('employer.job_edit', $job->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     <form action="{{ route('employer.delete_job', $job->id) }}" method="POST" style="display: inline;">
                         @csrf
