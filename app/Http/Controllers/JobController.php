@@ -4,26 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\ProgrammingLanguage;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function jobs(){
-        $jobs = Job::all();
-        return view("jobs", ["jobs"=> $jobs]);
+    public function jobs(Request $request){
+        $data = $request->all();
+
+        $langs = ProgrammingLanguage::get();
+
+        $query = Job::query();
+
+        if(isset($data['worktime'])) {
+            $query->where('worktime', $data['worktime']);
+        }
+        if(isset($data['english'])) {
+            $query->where('english', $data['english']);
+        }
+        if(isset($data['proglang'])) {
+            $query->whereHas('languages', function ($query) use ($data) {
+                $query->where('name', $data['proglang']);
+            });
+        }
+
+        $jobs = $query->paginate(10);
+
+        return view("jobs", compact('jobs', 'langs'));
     }
 
-    public function job_show($id){
-        $job = Job::find($id);
-        return view("job_show", ["job"=> $job]);
-    }
-
-    public function categories(){
-        $categories = Category::all();
-        return view("categories", ["categories"=> $categories]);
-    }
-
-    public function category_show($id){
-        // show jobs by category
+    public function job_show(Job $job){
+        return view("job_show", compact('job'));
     }
 }

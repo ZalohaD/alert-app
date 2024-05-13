@@ -6,6 +6,7 @@
     --dark: #2B3940;
 }
 
+
 .back-to-top {
     position: fixed;
     display: none;
@@ -102,6 +103,8 @@
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--primary);
 }
+
+
 
 @media (max-width: 991.98px) {
     .navbar-dark .navbar-nav .nav-link,

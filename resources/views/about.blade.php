@@ -1,36 +1,119 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- About Start -->
-    <div class="container-xxl py-5">
+
+    <!-- Hero Area End -->
+    <!-- Support Company Start-->
+<h1 class="text-xxl-center pt-5">About Us</h1>
+
+    <div class="support-company-area pt-150 pb-150 fix">
         <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="row g-0 about-bg rounded overflow-hidden">
-                        <div class="col-6 text-start">
-                            <img class="img-fluid w-100" src="img/about-1.jpg">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="right-caption">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle ">
+                            <span>What we are doing</span>
+                            <h2>24k Talented people are getting Jobs</h2>
                         </div>
-                        <div class="col-6 text-start">
-                            <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
-                        </div>
-                        <div class="col-6 text-end">
-                            <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
-                        </div>
-                        <div class="col-6 text-end">
-                            <img class="img-fluid w-100" src="img/about-4.jpg">
+                        <div class="support-caption">
+                            <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
+                            <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
+                            @guest
+                                <a href="{{ route('auth.login') }}" class="btn about-btn">Login to search job<i class="fa fa-arrow-right ms-3"></i></a>
+                            @endguest
+                            @auth
+                                @if (Auth::user()->user_type == 'employer')
+                                    <a href="{{ route('employer.create_job') }}" class="btn about-btn">Post a job</a>
+                                @elseif (Auth::user()->user_type == 'employee')
+                                    <a href="{{ route('employee.create_portfolio') }}" class="btn about-btn">Apply for job</a>
+                                @endif
+                            @endauth
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                    <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="support-location-img">
+                        <img src="{{url('img/support-img.jpg')}}" alt="">
+                        <div class="support-img-cap text-center">
+                            <p>Since</p>
+                            <span>1994</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Support Company End-->
+    <!-- How  Apply Process Start-->
+    <div class="apply-process-area apply-bg pt-150 pb-150" >
+        <div class="container">
+            <!-- Section Tittle -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle white-text text-center">
+                        <span>Apply process</span>
+                        <h2> How it works</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Apply Process Caption -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-process text-center mb-30">
+                        <div class="process-ion">
+                            <img class="about-icon" src="{{url('img/search-file.svg')}}">
+
+                        </div>
+                        <div class="process-cap">
+                            <h5>1. Search a job</h5>
+                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-process text-center mb-30">
+                        <div class="process-ion">
+                            <img class="about-icon" src="{{url('img/verified-user.svg')}}">
+                        </div>
+                        <div class="process-cap">
+                            <h5>2. Apply for job</h5>
+                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-process text-center mb-30">
+                        <div class="process-ion">
+                            <img class="about-icon" src="{{url('img/get-your-job.svg')}}">
+                        </div>
+                        <div class="process-cap">
+                            <h5>3. Get your job</h5>
+                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- How  Apply Process End-->
+   @include('Components.testimonial')
+    <!-- Testimonial End -->
+    <!-- Online CV Area Start -->
+    <div class="online-cv cv-bg section-overly pt-150 pb-150" >
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="cv-caption text-center">
+                        <p class="pera1">FEATURED TOURS Packages</p>
+                        <p class="pera2"> Make a Difference with Your Online Resume!</p>
+                        <a href="{{ route('auth.login') }}" class="border-btn2 border-btn4">Upload your cv</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Online CV Area End-->
+    </div>
+    <!-- Blog Area End -->
 @endsection

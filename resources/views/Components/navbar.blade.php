@@ -15,7 +15,7 @@
                 <div class="dropdown-menu rounded-0 m-0">
                     <a href="{{ route('jobs') }}" class="dropdown-item">All Jobs</a>
                     <a href="{{ route('categories') }}" class="dropdown-item">Categories</a>
-                    <a href="#" class="dropdown-item">Companies</a>
+                    <a href="{{ route('companies') }}" class="dropdown-item">Companies</a>
                 </div>
             </div>
             <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
@@ -25,9 +25,9 @@
         @endguest
         @auth
             @if (Auth::user()->user_type == 'employee')
-                <a href="{{ route('employee.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile</a>
+                <a href="{{ route('employee.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-4 d-none d-lg-flex gap-15"><img src="{{url('img/user-regular.svg')}}" alt="">Profile</a>
             @elseif (Auth::user()->user_type == 'employer')
-                <a href="{{ route('employer.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile</a>
+                <a href="{{ route('employer.home') }}" class="btn btn-primary rounded-0 py-4 px-lg-4 d-none d-lg-flex gap-15"><img src="{{url('img/user-regular.svg')}}" alt=""> Profile</a>
             @endif
         @endauth
     </div>

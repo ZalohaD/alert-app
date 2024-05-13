@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,16 +19,20 @@ class JobFactory extends Factory
      */
     public function definition(): array
     {
-        $worktime = ['full time', 'part time'];
-        
+        $worktime = ['Full time', 'Part time'];
+        $english = ['Beginner', 'Elementary', 'Intermediate', 'Upper-intermediate', 'Advanced', 'Proficiency'];
+
         return [
             'title' => fake()->jobTitle,
             'description' => fake()->realText(100),
             'city' => fake()->city(),
             'worktime' => $worktime[rand(0,1)],
-            'salary' => '$50.000',
-            'category_id' => Category::inRandomOrder()->first(),
-            'user_id' => User::inRandomOrder()->first(),
+            'experience'=> fake()->randomNumber(1,7),
+            'english' => $english[array_rand($english)],
+            'salary' => number_format(fake()->numberBetween(5000, 100000), 0, '.', ','),
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'company_id' => Company::inRandomOrder()->first()->id,
         ];
     }
 }

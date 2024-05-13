@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (! Auth::attempt($validated)) {
             throw ValidationException::withMessages([
-                'email' => 'Invalid email'
+                'email' => 'Credentials don\'t match'
             ]);
         };
 

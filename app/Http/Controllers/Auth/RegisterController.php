@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -16,10 +17,13 @@ class RegisterController extends Controller
     public function register_store(Request $request){
         
         request()->validate([
-            'first_name' =>['required'],
-            'last_name' =>['required'],
-            'email' =>['required', 'email', 'max:254'],
-            'password' =>['required'],
+            'first_name' =>['required', 'min:3'],
+            'last_name' =>['required', 'min:3'],
+            'email' =>['required', 'email', 'max:254', 'unique:users,email'],
+            'password' =>['required', 'min:6'],
+            'user_type' => ['required']
+        ], [
+            'email.unique' => 'Email already taken',
         ]);
 
         $user = User::create([
@@ -32,6 +36,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect('/employee/home');
+        return redirect('/');
     }
 }
