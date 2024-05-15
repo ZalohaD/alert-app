@@ -48,7 +48,7 @@
     </div>
     <!-- Support Company End-->
     <!-- How  Apply Process Start-->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.2s">
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.2s">
         <div class="apply-process-area apply-bg pt-150 pb-150" >
             <div class="container">
                 <!-- Section Tittle -->
@@ -103,7 +103,7 @@
     @include('Components.testimonial')
     <!-- Testimonial End -->
     <!-- Online CV Area Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.3s">
+    <div class="container-fluid pt-5 wow fadeInUp" data-wow-delay="0.3s">
         <div class="online-cv cv-bg section-overly pt-150 pb-150" >
             <div class="container">
                 <div class="row justify-content-center">

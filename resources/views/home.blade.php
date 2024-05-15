@@ -2,117 +2,105 @@
 
 @section('content')
 
-    <!-- Hero Area End -->
-    <!-- Support Company Start-->
-    <h1 class="text-xxl-center pt-5 wow fadeIn" data-wow-delay="0.1s">About Us</h1>
+    <!-- Hero Start -->
+    <div class="container-fluid p-0">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="{{url('img/carousel-1.jpg')}}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                <a href="{{route('auth.login')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+                                <a href="{{route('auth.login')}}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="{{url('img/carousel-2.jpg')}}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                <a href="{{route('auth.login')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+                                <a href="{{route('auth.login')}}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
 
-    <div class="support-company-area pt-150 pb-150 fix">
+    {{-- @include('components.search') --}}
+
+    @include('components.categories')
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 wow fadeIn" data-wow-delay="0.2s">
-                    <div class="right-caption">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle">
-                            <span>What we are doing</span>
-                            <h2>24k Talented people are getting Jobs</h2>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="row g-0 about-bg rounded overflow-hidden">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid w-100" src="{{url('img/about-1.jpg')}}">
                         </div>
-                        <div class="support-caption">
-                            <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
-                            <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                            @guest
-                                <a href="{{ route('auth.login') }}" class="btn about-btn">Login to search job<i class="fa fa-arrow-right ms-3"></i></a>
-                            @endguest
-                            @auth
-                                @if (Auth::user()->user_type == 'employer')
-                                    <a href="{{ route('employer.create_job') }}" class="btn about-btn">Post a job</a>
-                                @elseif (Auth::user()->user_type == 'employee')
-                                    <a href="{{ route('employee.create_portfolio') }}" class="btn about-btn">Apply for job</a>
-                                @endif
-                            @endauth
+                        <div class="col-6 text-start">
+                            <img class="img-fluid" src="{{url('img/about-2.jpg')}}" style="width: 85%; margin-top: 15%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid" src="{{url('img/about-3.jpg')}}" style="width: 85%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid w-100" src="{{url('img/about-4.jpg')}}">
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="support-location-img">
-                        <img src="{{url('img/support-img.jpg')}}" alt="">
-                        <div class="support-img-cap text-center">
-                            <p>Since</p>
-                            <span>1994</span>
-                        </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+                    <a class="btn btn-primary py-3 px-5 mt-3" href="{{route('about')}}">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+
+                        @foreach ($jobs as $job)
+                            <x-job :job='$job'></x-job>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Support Company End-->
-    <!-- How  Apply Process Start-->
-    <div class="apply-process-area apply-bg pt-150 pb-150 wow fadeIn" data-wow-delay="0.4s">
+    <div class="container-xxl py-5">
         <div class="container">
-            <!-- Section Tittle -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle white-text text-center">
-                        <span>Apply process</span>
-                        <h2> How it works</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Apply Process Caption -->
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <img class="about-icon" src="{{url('img/search-file.svg')}}">
-                        </div>
-                        <div class="process-cap">
-                            <h5>1. Search a job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <img class="about-icon" src="{{url('img/verified-user.svg')}}">
-                        </div>
-                        <div class="process-cap">
-                            <h5>2. Apply for job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <img class="about-icon" src="{{url('img/get-your-job.svg')}}">
-                        </div>
-                        <div class="process-cap">
-                            <h5>3. Get your job</h5>
-                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                <a class="btn btn-primary py-3 px-5" href={{ route('jobs') }}>Browse More Jobs</a>
             </div>
         </div>
     </div>
-    <!-- How  Apply Process End-->
-    @include('Components.testimonial')
-    <!-- Testimonial End -->
-    <!-- Online CV Area Start -->
-    <div class="online-cv cv-bg section-overly pt-150 pb-150 wow fadeIn" data-wow-delay="0.5s">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <div class="cv-caption text-center">
-                        <p class="pera1">FEATURED TOURS Packages</p>
-                        <p class="pera2"> Make a Difference with Your Online Resume!</p>
-                        <a href="{{ route('auth.login') }}" class="border-btn2 border-btn4">Upload your cv</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Online CV Area End-->
-    </div>
-    <!-- Blog Area End -->
+
+    <!-- Testimonials -->
+    <x-testimonial :$testimonials />
+
 @endsection
